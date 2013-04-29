@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Contacta...{% endblock titulo %}
+
+{% block contenido %}
+
+	<form action="." method='POST'>
+
+		{% csrf_token %}
+
+    	<div class="fieldWrapper">
+        	{{ form.tipo.errors }}
+        	<label for="id_tipo">Tipo:</label>
+        	{{ form.tipo }}
+    	</div>
+	    
+	    <div class="fieldWrapper">
+    	    {{ form.texto.errors }}
+        	<label for="id_texto">Consulta:</label>
+	        {{ form.texto }}
+    	</div>
+    	
+    	<div class="fieldWrapper">
+        	{{ form.mail.errors }}
+        	<label for="id_mail">Your email (optional):</label>
+        	{{ form.mail }}
+    	</div>
+		
+		{# {{ form.as_p }} #}
+		
+		<p>
+			<input type="submit" class="btn btn-primary" value="Enviar">
+		</p>
+
+	</form>
+
+{% endblock contenido %}
+
+
+
+
+<!-- <!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Contacta con nosotros</title>
+</head>
+<body>
+
+	<h1>Contacta con nosotros</h1>
+
+	<form action="." method='POST'>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+
+</body>
+</html> -->
